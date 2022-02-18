@@ -5,7 +5,7 @@ export type UserDocument  = User & Document
 @Schema()
 export class User {
   @Prop()
-  userId:number
+  userId:number;
 
   @Prop()
   role: string;

@@ -3,9 +3,17 @@ import { UsersService } from './users.service';
 import { UsersController } from "./users.controller";
 import { MongooseModule } from "@nestjs/mongoose";
 import { User, UserSchema } from "./schemas/user.schema";
+import { APP_GUARD } from "@nestjs/core";
+import { RolesGuard } from "../enums/roles.guard";
 
 @Module({
-  providers: [UsersService],
+  providers: [
+    UsersService,
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard
+    }
+],
   exports: [UsersService],
   controllers:[UsersController],
   imports:[

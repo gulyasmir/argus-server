@@ -7,6 +7,7 @@ import { User, UserDocument } from "./schemas/user.schema";
 
 @Injectable()
 export class UsersService {
+  users: any;
   constructor(@InjectModel(User.name) private userModel:Model<UserDocument>) {
   }
   async getAll(): Promise<User[]>{
@@ -30,27 +31,9 @@ export class UsersService {
     return  this.userModel.findByIdAndUpdate(id, userDto, {new: true})
   }
 
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'admin',
-      password: '123456',
-      role:'fbff',
-      email:'llll',
-      image:'kkkk'
-    },
-    {
-      userId: 2,
-      username: 'maria',
-      password: 'guess',
-      role:'fbff',
-      email:'llll',
-      image:'kkkk'
-    },
-  ];
-
   async findOne(username: string): Promise<User | undefined> {
-    return this.users.find(user => user.username === username);
+    let users = await this.getAll()
+    return users.find(user  => user .username === username);
   }
 
 }

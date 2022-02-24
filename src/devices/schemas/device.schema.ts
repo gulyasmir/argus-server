@@ -6,7 +6,7 @@ export type DeviceDocument  = Device & Document
 export class Device {
 
   @Prop({ type: Object })
-  device: Object;
+  device: Object[];
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

@@ -1,4 +1,4 @@
 export class UpdateDeviceDto {
   readonly title:string
-  readonly parameters:string[]
+  readonly os_info:Object
 }

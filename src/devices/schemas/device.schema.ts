@@ -7,8 +7,8 @@ export class Device {
   @Prop()
   title: string;
 
-  @Prop()
-  parameters: string[];
+  @Prop({ type: Object })
+  os_info: Object;
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

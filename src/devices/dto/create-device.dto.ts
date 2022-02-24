@@ -1,4 +1,4 @@
 export  class CreateDeviceDto {
   readonly title:string
-  readonly parameters:string[]
+  readonly os_info:Object
 }

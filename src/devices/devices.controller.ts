@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Header, HttpCode, HttpStatus, Post } from "@nestjs/common";
 import { Role } from "../enums/role.enum";
 import { CreateDeviceDto } from "./dto/create-device.dto";
 import { Roles } from "../enums/roles.decorator";
@@ -18,8 +18,10 @@ export class DevicesController {
 
 
   @Post()
-  @Roles(Role.Admin)
+  @HttpCode(HttpStatus.CREATED)
+  @Header('Cache-Control','none')
+ // @Roles(Role.Admin)
   create(@Body() createDeviceDto: CreateDeviceDto) {
-    this.devicesService.create(this.createDeviceDto);
+    return this.devicesService.create(createDeviceDto)
   }
 }

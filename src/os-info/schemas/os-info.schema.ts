@@ -5,7 +5,7 @@ export type OsInfoDocument  = OsInfo & Document
 @Schema()
 export class OsInfo {
   @Prop()
-  id_device: string;
+  id: string;
 
   @Prop()
   time:number;

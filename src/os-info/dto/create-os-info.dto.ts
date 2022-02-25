@@ -1,5 +1,5 @@
 export class CreateOsInfoDto {
-  readonly id_device:string
+  readonly idDevice:string
   readonly time:number
-  readonly data:Object
+  readonly dataInfo:Object
 }

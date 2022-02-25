@@ -5,13 +5,13 @@ export type OsInfoDocument  = OsInfo & Document
 @Schema()
 export class OsInfo {
   @Prop()
-  id_device: string;
+  idDevice: string;
 
   @Prop()
   time:number;
 
   @Prop({ type: Object })
-  data: Object;
+  dataInfo: Object;
 }
 
 export const OsInfoSchema = SchemaFactory.createForClass(OsInfo);

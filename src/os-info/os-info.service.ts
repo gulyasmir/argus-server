@@ -21,7 +21,7 @@ export class OsInfoService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} osInfo`;
+    return this.osInfoModel.findById(id)
   }
 
   update(id: number, updateOsInfoDto: UpdateOsInfoDto) {

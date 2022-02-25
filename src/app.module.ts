@@ -7,6 +7,8 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { DevicesModule } from './devices/devices.module';
 import { NetworksModule } from './networks/networks.module';
+import { OsInfoModule } from './os-info/os-info.module';
+import { OsInfoModule } from './os-info/os-info.module';
 
 @Module({
   imports: [
@@ -15,7 +17,8 @@ import { NetworksModule } from './networks/networks.module';
     UsersModule,
     AuthModule,
     DevicesModule,
-    NetworksModule
+    NetworksModule,
+    OsInfoModule
   ],
   controllers: [AppController],
   providers: [AppService],

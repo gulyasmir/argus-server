@@ -10,8 +10,8 @@ export class OsInfo {
   @Prop()
   time:number;
 
-  @Prop()
-  data: object;
+  @Prop({ type: Object })
+  data: Object;
 }
 
 export const OsInfoSchema = SchemaFactory.createForClass(OsInfo);

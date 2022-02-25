@@ -8,7 +8,6 @@ import { OsInfo, OsInfoDocument } from "./schemas/os-info.schema";
 
 @Injectable()
 export class OsInfoService {
-
   constructor(@InjectModel(OsInfo.name) private osInfoModel:Model<OsInfoDocument>) {
   }
 

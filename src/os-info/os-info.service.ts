@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+
 import { CreateOsInfoDto } from './dto/create-os-info.dto';
 import { UpdateOsInfoDto } from './dto/update-os-info.dto';
+import { OsInfo, OsInfoDocument } from "./schemas/os-info.schema";
 
 @Injectable()
 export class OsInfoService {
-  create(createOsInfoDto: CreateOsInfoDto) {
-    return 'This action adds a new osInfo';
+
+  constructor(@InjectModel(OsInfo.name) private osInfoModel:Model<OsInfoDocument>) {
   }
 
-  findAll() {
-    return `This action returns all osInfo`;
+  async findAll(): Promise<OsInfo[]>{
+    return this.osInfoModel.find().exec()
+  }
+
+  async create(osInfoDto: CreateOsInfoDto): Promise<OsInfo>{
+    const  newOsInfo = new this.osInfoModel(osInfoDto)
+    return  newOsInfo.save()
   }
 
   findOne(id: number) {

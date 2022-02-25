@@ -8,7 +8,6 @@ import { UsersModule } from './users/users.module';
 import { DevicesModule } from './devices/devices.module';
 import { NetworksModule } from './networks/networks.module';
 import { OsInfoModule } from './os-info/os-info.module';
-import { OsInfoModule } from './os-info/os-info.module';
 
 @Module({
   imports: [

@@ -1,14 +1,17 @@
 import {Schema, Prop, SchemaFactory} from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type SystemInfoDocument  = SystemInfo & Document
+export type ProccessDocument  = Proccess & Document
 @Schema()
-export class SystemInfo {
+export class Proccess {
   @Prop()
   id_device: string;
 
   @Prop()
-  page: string;
+  id_proccess: string;
+
+  @Prop()
+  number_proccess: number;
 
   @Prop()
   time:number;
@@ -17,4 +20,4 @@ export class SystemInfo {
   data_info: Object;
 }
 
-export const SystemInfoSchema = SchemaFactory.createForClass(SystemInfo);
+export const ProccessSchema = SchemaFactory.createForClass(Proccess);

@@ -1,6 +1,7 @@
 export class CreateSystemInfoDto {
   readonly id_device:string
-  readonly page:string
+  readonly id_proccess:string
+  readonly number_proccess:number
   readonly time:number
   readonly data_info:Object
 }

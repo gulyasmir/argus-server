@@ -11,6 +11,7 @@ import { OsInfoModule } from './os-info/os-info.module';
 import { GraphicsModule } from './graphics/graphics.module';
 import { AudioModule } from './audio/audio.module';
 import { SystemInfoModule } from './system-info/system-info.module';
+import { ProcessesModule } from './processes/processes.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { SystemInfoModule } from './system-info/system-info.module';
     OsInfoModule,
     GraphicsModule,
     AudioModule,
-    SystemInfoModule
+    SystemInfoModule,
+    ProcessesModule
   ],
   controllers: [AppController],
   providers: [AppService],

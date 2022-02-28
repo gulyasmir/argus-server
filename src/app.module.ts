@@ -8,6 +8,8 @@ import { UsersModule } from './users/users.module';
 import { DevicesModule } from './devices/devices.module';
 import { NetworksModule } from './networks/networks.module';
 import { OsInfoModule } from './os-info/os-info.module';
+import { GraphicsModule } from './graphics/graphics.module';
+import { AudioModule } from './audio/audio.module';
 
 @Module({
   imports: [
@@ -17,7 +19,9 @@ import { OsInfoModule } from './os-info/os-info.module';
     AuthModule,
     DevicesModule,
     NetworksModule,
-    OsInfoModule
+    OsInfoModule,
+    GraphicsModule,
+    AudioModule
   ],
   controllers: [AppController],
   providers: [AppService],

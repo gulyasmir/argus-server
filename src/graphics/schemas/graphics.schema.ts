@@ -1,9 +1,10 @@
 import {Schema, Prop, SchemaFactory} from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type OsInfoDocument  = OsInfo & Document
+
+export type GraphicsDocument  = Graphics & Document
 @Schema()
-export class OsInfo {
+export class Graphics {
   @Prop()
   id_device: string;
 
@@ -14,4 +15,4 @@ export class OsInfo {
   data_info: Object;
 }
 
-export const OsInfoSchema = SchemaFactory.createForClass(OsInfo);
+export const GraphicsSchema = SchemaFactory.createForClass(Graphics);

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Query } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 
@@ -15,13 +15,17 @@ export class OsInfoService {
     return this.osInfoModel.find().exec()
   }
 
-  async create(osInfoDto: CreateOsInfoDto): Promise<OsInfo>{
-    const  newOsInfo = new this.osInfoModel(osInfoDto)
+  async create(createOsInfoDto: CreateOsInfoDto): Promise<OsInfo>{
+    const  newOsInfo = new this.osInfoModel(createOsInfoDto)
     return  newOsInfo.save()
   }
 
-  findOne(id: number) {
-    return this.osInfoModel.findById(id)
+  async find(id_device: string) {
+    const entities = await this.query({ filter: { completed: { id_device: id_device } } });
+    var array =[{id_device:10}, {id_device:20}]
+    var millionPlusCities = array.filter(e => e.id_device >0);
+    console.log(entities);
+   // return array.filter(item => item.item > 10)
   }
 
   update(id: number, updateOsInfoDto: UpdateOsInfoDto) {
@@ -30,5 +34,9 @@ export class OsInfoService {
 
   remove(id: number) {
     return `This action removes a #${id} osInfo`;
+  }
+
+  private async query(param: { filter: { completed: { id_device: string } } }) {
+
   }
 }

@@ -1,9 +1,10 @@
 import {Schema, Prop, SchemaFactory} from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Query } from '@nestjs-query/core'
 
-export type OsInfoDocument  = OsInfo & Document
+export type AudioDocument  = Audio & Document
 @Schema()
-export class OsInfo {
+export class Audio {
   @Prop()
   id_device: string;
 
@@ -14,4 +15,4 @@ export class OsInfo {
   data_info: Object;
 }
 
-export const OsInfoSchema = SchemaFactory.createForClass(OsInfo);
+export const AudioSchema = SchemaFactory.createForClass(Audio);

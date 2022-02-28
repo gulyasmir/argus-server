@@ -17,9 +17,9 @@ export class OsInfoController {
     return this.osInfoService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.osInfoService.findOne(+id);
+  @Get(':id_device')
+  findOne(@Param('id_device') id_device: string) {
+    return this.osInfoService.find(id_device);
   }
 
   @Patch(':id')

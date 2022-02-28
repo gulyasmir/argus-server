@@ -18,8 +18,8 @@ export class SystemInfoService {
     return this.systemInfoModel.find().exec()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} systemInfo`;
+  findOne(page: string) {
+    return `This action returns page a #${page} systemInfo`;
   }
 
   update(id: number, updateSystemInfoDto: UpdateSystemInfoDto) {

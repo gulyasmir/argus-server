@@ -17,9 +17,9 @@ export class SystemInfoController {
     return this.systemInfoService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.systemInfoService.findOne(+id);
+  @Get(':page')
+  findOne(@Param('page') page: string) {
+    return this.systemInfoService.findOne(page);
   }
 
   @Patch(':id')

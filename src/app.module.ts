@@ -10,6 +10,7 @@ import { NetworksModule } from './networks/networks.module';
 import { OsInfoModule } from './os-info/os-info.module';
 import { GraphicsModule } from './graphics/graphics.module';
 import { AudioModule } from './audio/audio.module';
+import { SystemInfoModule } from './system-info/system-info.module';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { AudioModule } from './audio/audio.module';
     NetworksModule,
     OsInfoModule,
     GraphicsModule,
-    AudioModule
+    AudioModule,
+    SystemInfoModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,7 +8,10 @@ export class SystemInfo {
   id_device: string;
 
   @Prop()
-  page: string;
+  id_proccess: string;
+
+  @Prop()
+  number_proccess: number;
 
   @Prop()
   time:number;

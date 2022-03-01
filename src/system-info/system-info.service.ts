@@ -19,7 +19,8 @@ export class SystemInfoService {
     return this.systemInfoModel.find().exec()
   }
 
-  findOne(page: string): Promise<SystemInfo[]> {
+  findByPage(page: string): Promise<SystemInfo[]> {
+    console.log('findOne', this.systemInfoModel.find({ page: page }).exec())
     return this.systemInfoModel.find({ page: page }).exec()
   }
 

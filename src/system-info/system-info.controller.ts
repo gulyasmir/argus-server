@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from "@nestj
 import { SystemInfoService } from './system-info.service';
 import { CreateSystemInfoDto } from './dto/create-system-info.dto';
 import { UpdateSystemInfoDto } from './dto/update-system-info.dto';
+import { SystemInfo } from "./schemas/system-info.schema";
 
 @Controller('system-info')
 export class SystemInfoController {
@@ -17,10 +18,19 @@ export class SystemInfoController {
     return this.systemInfoService.findAll();
   }
 
-  @Get(':page')
-  findOne(@Query('page') page: string) {
-    return this.systemInfoService.findOne(page);
+  //@Get(':page')
+ // findOne(@Query('page') page: string) {
+ //   return this.systemInfoService.findOne(page);
+ // }
+
+  @Get('/:page')
+  findByPage(
+    @Param('page') page: string,
+    @Query() filter: string,
+  ): Promise<SystemInfo[]> {
+    return this.systemInfoService.findByPage(page);
   }
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSystemInfoDto: UpdateSystemInfoDto) {

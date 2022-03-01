@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable , Query} from '@nestjs/common';
 import { CreateSystemInfoDto } from './dto/create-system-info.dto';
 import { UpdateSystemInfoDto } from './dto/update-system-info.dto';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { SystemInfo, SystemInfoDocument } from "./schemas/system-info.schema";
+import { Device } from "../devices/schemas/device.schema";
 
 @Injectable()
 export class SystemInfoService {
@@ -14,12 +15,12 @@ export class SystemInfoService {
     return  newSystemInfo.save()
   }
 
-  findAll() {
+  findAll(): Promise<SystemInfo[]> {
     return this.systemInfoModel.find().exec()
   }
 
-  findOne(page: string) {
-    return `This action returns page a #${page} systemInfo`;
+  findOne(page: string): Promise<SystemInfo[]> {
+    return this.systemInfoModel.find({ page: page }).exec()
   }
 
   update(id: number, updateSystemInfoDto: UpdateSystemInfoDto) {

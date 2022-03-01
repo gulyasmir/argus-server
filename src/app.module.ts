@@ -7,9 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { DevicesModule } from './devices/devices.module';
 import { NetworksModule } from './networks/networks.module';
-import { OsInfoModule } from './os-info/os-info.module';
-import { GraphicsModule } from './graphics/graphics.module';
-import { AudioModule } from './audio/audio.module';
 import { SystemInfoModule } from './system-info/system-info.module';
 import { ProcessesModule } from './processes/processes.module';
 
@@ -21,9 +18,6 @@ import { ProcessesModule } from './processes/processes.module';
     AuthModule,
     DevicesModule,
     NetworksModule,
-    OsInfoModule,
-    GraphicsModule,
-    AudioModule,
     SystemInfoModule,
     ProcessesModule
   ],

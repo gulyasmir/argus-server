@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from "@nestjs/common";
 import { SystemInfoService } from './system-info.service';
 import { CreateSystemInfoDto } from './dto/create-system-info.dto';
 import { UpdateSystemInfoDto } from './dto/update-system-info.dto';
@@ -18,7 +18,7 @@ export class SystemInfoController {
   }
 
   @Get(':page')
-  findOne(@Param('page') page: string) {
+  findOne(@Query('page') page: string) {
     return this.systemInfoService.findOne(page);
   }
 

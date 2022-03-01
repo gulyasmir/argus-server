@@ -19,8 +19,8 @@ export class SystemInfoService {
     return this.systemInfoModel.find().exec()
   }
 
-  findByPage(page: string): Promise<SystemInfo[]> {
-    return this.systemInfoModel.find({ page: page }).exec()
+  findByPage(id_device : string, page: string): Promise<SystemInfo[]> {
+    return this.systemInfoModel.find({ id_device: id_device, page: page }).exec()
   }
 
   update(id: number, updateSystemInfoDto: UpdateSystemInfoDto) {

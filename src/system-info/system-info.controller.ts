@@ -23,12 +23,12 @@ export class SystemInfoController {
  //   return this.systemInfoService.findOne(page);
  // }
 
-  @Get('/:page')
+  @Get('/:id_device/:page')
   findByPage(
     @Param('page') page: string,
-    @Query() filter: string,
+    @Param('id_device') id_device: string,
   ): Promise<SystemInfo[]> {
-    return this.systemInfoService.findByPage(page);
+    return this.systemInfoService.findByPage(id_device, page);
   }
 
 

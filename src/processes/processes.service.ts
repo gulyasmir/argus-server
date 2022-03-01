@@ -3,15 +3,15 @@ import { CreateProcessDto } from './dto/create-process.dto';
 import { UpdateProcessDto } from './dto/update-process.dto';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { Proccess, ProccessDocument } from "./schemas/proccess.schema";
+import { Process, ProcessDocument } from "./schemas/process.schema";
 
 @Injectable()
 export class ProcessesService {
-  constructor(@InjectModel(Proccess.name) private processModel:Model<ProccessDocument>) {
+  constructor(@InjectModel(Process.name) private processModel:Model<ProcessDocument>) {
   }
   create(createProcessDto: CreateProcessDto) {
-    const  newProccess = new this.processModel(createProcessDto)
-    return  newProccess.save()
+    const  newProcess = new this.processModel(createProcessDto)
+    return  newProcess.save()
   }
 
   findAll() {
@@ -20,6 +20,10 @@ export class ProcessesService {
 
   findOne(id: number) {
     return `This action returns a #${id} process`;
+  }
+
+  findByProcess(id_process: string): Promise<Process[]> {
+    return this.processModel.find({ id_process: id_process }).exec()
   }
 
   update(id: number, updateProcessDto: UpdateProcessDto) {

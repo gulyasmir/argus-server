@@ -4,7 +4,7 @@ import { UpdateSystemInfoDto } from './dto/update-system-info.dto';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { SystemInfo, SystemInfoDocument } from "./schemas/system-info.schema";
-import { Device } from "../devices/schemas/device.schema";
+
 
 @Injectable()
 export class SystemInfoService {
@@ -20,7 +20,6 @@ export class SystemInfoService {
   }
 
   findByPage(page: string): Promise<SystemInfo[]> {
-    console.log('findOne', this.systemInfoModel.find({ page: page }).exec())
     return this.systemInfoModel.find({ page: page }).exec()
   }
 

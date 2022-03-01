@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from "@nestjs/common";
 import { ProcessesService } from './processes.service';
 import { CreateProcessDto } from './dto/create-process.dto';
 import { UpdateProcessDto } from './dto/update-process.dto';
+import { Process } from "./schemas/process.schema";
 
 @Controller('processes')
 export class ProcessesController {
@@ -20,6 +21,14 @@ export class ProcessesController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.processesService.findOne(+id);
+  }
+
+  @Get('/:id_process')
+  findByProcess(
+    @Param('id_process') id_process: string,
+    @Query() filter: string,
+  ): Promise<Process[]> {
+    return this.processesService.findByProcess(id_process);
   }
 
   @Patch(':id')

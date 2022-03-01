@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ProcessesService } from './processes.service';
 import { ProcessesController } from './processes.controller';
 import { MongooseModule } from "@nestjs/mongoose";
-import { Proccess, ProccessSchema } from "./schemas/proccess.schema";
+import { Proccess, ProccessSchema } from "./schemas/process.schema";
 
 @Module({
   controllers: [ProcessesController],

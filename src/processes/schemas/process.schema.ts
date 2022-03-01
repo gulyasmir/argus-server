@@ -1,17 +1,17 @@
 import {Schema, Prop, SchemaFactory} from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type ProccessDocument  = Proccess & Document
+export type ProcessDocument  = Process & Document
 @Schema()
-export class Proccess {
+export class Process {
   @Prop()
   id_device: string;
 
   @Prop()
-  id_proccess: string;
+  id_process: string;
 
   @Prop()
-  number_proccess: number;
+  number_process: number;
 
   @Prop()
   time:number;
@@ -20,4 +20,4 @@ export class Proccess {
   data_info: Object;
 }
 
-export const ProccessSchema = SchemaFactory.createForClass(Proccess);
+export const ProcessSchema = SchemaFactory.createForClass(Process);

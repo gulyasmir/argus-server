@@ -11,6 +11,9 @@ export class SystemInfo {
   page: string;
 
   @Prop()
+  page_title: string;
+
+  @Prop()
   time:number;
 
   @Prop({ type: Object })

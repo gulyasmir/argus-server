@@ -8,7 +8,10 @@ export class Process {
   id_device: string;
 
   @Prop()
-  id_process: string;
+  page: string;
+
+  @Prop()
+  id_process_page: string;
 
   @Prop()
   number_process: number;

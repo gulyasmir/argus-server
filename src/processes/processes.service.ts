@@ -18,10 +18,6 @@ export class ProcessesService {
     return this.processModel.find().exec()
   }
 
-  findOne(_id: string) {
-    return `This action returns a #${_id} process`;
-  }
-
   findByProcess(id_process: string): Promise<Process[]> {
     return this.processModel.find({ id_process: id_process }).exec()
   }

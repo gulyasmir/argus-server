@@ -18,11 +18,6 @@ export class ProcessesController {
     return this.processesService.findAll();
   }
 
-  @Get(':_id')
-  findOne(@Param('_id') _id: string): string {
-    return this.processesService.findOne(_id);
-  }
-
 
   @Get('/:id_process')
   findByProcess(

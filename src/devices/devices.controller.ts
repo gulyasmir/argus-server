@@ -1,9 +1,11 @@
-import { Body, Controller, Get, Header, HttpCode, HttpStatus, Post } from "@nestjs/common";
+import { Body, Controller, Get, Header, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
 import { Role } from "../enums/role.enum";
 import { CreateDeviceDto } from "./dto/create-device.dto";
 import { Roles } from "../enums/roles.decorator";
 import { DevicesService } from "./devices.service";
 import { Device } from "./schemas/device.schema";
+import { UpdateDeviceDto } from "./dto/update-device-dto";
+
 
 
 @Controller('devices')
@@ -23,5 +25,10 @@ export class DevicesController {
  // @Roles(Role.Admin)
   create(@Body() createDeviceDto: CreateDeviceDto) {
     return this.devicesService.create(createDeviceDto)
+  }
+
+  @Put(':id')
+  update(@Body() updateDeviceDto:UpdateDeviceDto, @Param('id') id:string): Promise<Device>{
+    return this.devicesService.update(id, updateDeviceDto)
   }
 }

@@ -17,4 +17,8 @@ export class DevicesService {
     const  newDevice = new this.deviceModel(deviceDto)
     return  newDevice.save()
   }
+
+  async  update(id: string, deviceDto: CreateDeviceDto): Promise<Device>{
+    return  this.deviceModel.findByIdAndUpdate(id, deviceDto, {new: true})
+  }
 }

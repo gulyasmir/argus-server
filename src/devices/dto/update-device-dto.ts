@@ -1,3 +1,7 @@
 export class UpdateDeviceDto {
-  readonly device:Object
+  readonly  location: string;
+
+  readonly  function: string;
+
+  readonly  title: string;
 }

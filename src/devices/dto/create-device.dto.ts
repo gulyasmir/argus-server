@@ -1,3 +1,6 @@
 export  class CreateDeviceDto {
-  readonly device:Object
+
+  readonly  ip: string;
+
+  readonly  time: number;
 }

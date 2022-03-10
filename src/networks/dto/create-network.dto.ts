@@ -1,1 +1,7 @@
-export class CreateNetworkDto {}
+export class CreateNetworksDto {
+  readonly  ip: string;
+  readonly  time: number;
+  readonly  location: string;
+  readonly  function: string;
+  readonly  title: string;
+}

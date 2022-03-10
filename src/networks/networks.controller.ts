@@ -1,34 +1,26 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from "@nestjs/common";
 import { NetworksService } from './networks.service';
-import { CreateNetworkDto } from './dto/create-network.dto';
-import { UpdateNetworkDto } from './dto/update-network.dto';
+import { CreateNetworksDto } from './dto/create-network.dto';
+import { UpdateNetworksDto } from './dto/update-network.dto';
+import { Networks } from "./schemas/networks.schema";
 
 @Controller('networks')
 export class NetworksController {
-  constructor(private readonly networksService: NetworksService) {}
-
+  private createNetworksDto: CreateNetworksDto;
+  constructor(private readonly networksService: NetworksService) {
+  }
   @Post()
-  create(@Body() createNetworkDto: CreateNetworkDto) {
+  create(@Body() createNetworkDto: CreateNetworksDto) {
     return this.networksService.create(createNetworkDto);
   }
 
   @Get()
-  findAll() {
-    return this.networksService.findAll();
+  getAll() {
+    return this.networksService.getAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.networksService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNetworkDto: UpdateNetworkDto) {
-    return this.networksService.update(+id, updateNetworkDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.networksService.remove(+id);
+  @Put(':id')
+  update(@Body() updateNetworksDto:UpdateNetworksDto, @Param('id') id:string): Promise<Networks>{
+    return this.networksService.update(id, updateNetworksDto)
   }
 }

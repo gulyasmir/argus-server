@@ -1,4 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateNetworkDto } from './create-network.dto';
-
-export class UpdateNetworkDto extends PartialType(CreateNetworkDto) {}
+export class UpdateNetworksDto {
+  readonly  ip: string;
+  readonly  time: number;
+  readonly  location: string;
+  readonly  function: string;
+  readonly  title: string;
+}

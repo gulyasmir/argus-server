@@ -1,26 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { CreateNetworkDto } from './dto/create-network.dto';
-import { UpdateNetworkDto } from './dto/update-network.dto';
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { Networks, NetworksDocument } from "./schemas/networks.schema";
+import { CreateNetworksDto } from "./dto/create-network.dto";
 
 @Injectable()
 export class NetworksService {
-  create(createNetworkDto: CreateNetworkDto) {
-    return 'This action adds a new network';
+  constructor(@InjectModel(Networks.name) private networksModel:Model<NetworksDocument>) {
   }
 
-  findAll() {
-    return `This action returns all networks`;
+  async getAll(): Promise<Networks[]>{
+    return this.networksModel.find().exec()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} network`;
+  async create(networksDto: CreateNetworksDto): Promise<Networks>{
+    const  newNetworks = new this.networksModel(networksDto)
+    return  newNetworks.save()
   }
 
-  update(id: number, updateNetworkDto: UpdateNetworkDto) {
-    return `This action updates a #${id} network`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} network`;
+  async  update(id: string, networksDto: CreateNetworksDto): Promise<Networks>{
+    return  this.networksModel.findByIdAndUpdate(id, networksDto, {new: true})
   }
 }

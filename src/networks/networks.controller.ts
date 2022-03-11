@@ -6,12 +6,11 @@ import { Networks } from "./schemas/networks.schema";
 
 @Controller('networks')
 export class NetworksController {
-  private createNetworksDto: CreateNetworksDto;
   constructor(private readonly networksService: NetworksService) {
   }
   @Post()
-  create(@Body() createNetworkDto: CreateNetworksDto) {
-    return this.networksService.create(createNetworkDto);
+  create(@Body() createNetworksDto: CreateNetworksDto) {
+    return this.networksService.create(createNetworksDto);
   }
 
   @Get()

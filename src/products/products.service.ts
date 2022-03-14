@@ -22,6 +22,7 @@ export class ProductsService {
    const  newProduct = new this.productModel(productDto)
     return  newProduct.save()
   }
+
   async  remove(id: string): Promise<Product>{
     return  this.productModel.findByIdAndRemove(id)
   }

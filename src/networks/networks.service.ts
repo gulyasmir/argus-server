@@ -3,6 +3,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Networks, NetworksDocument } from "./schemas/networks.schema";
 import { CreateNetworksDto } from "./dto/create-network.dto";
+import { Product } from "../products/schemas/product.schema";
 
 @Injectable()
 export class NetworksService {
@@ -21,4 +22,9 @@ export class NetworksService {
   async  update(id: string, networksDto: CreateNetworksDto): Promise<Networks>{
     return  this.networksModel.findByIdAndUpdate(id, networksDto, {new: true})
   }
+
+  async  remove(id: string): Promise<Networks>{
+    return  this.networksModel.findByIdAndRemove(id)
+  }
+
 }

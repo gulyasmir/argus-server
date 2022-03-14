@@ -3,6 +3,7 @@ import { NetworksService } from './networks.service';
 import { CreateNetworksDto } from './dto/create-network.dto';
 import { UpdateNetworksDto } from './dto/update-network.dto';
 import { Networks } from "./schemas/networks.schema";
+import { Product } from "../products/schemas/product.schema";
 
 @Controller('networks')
 export class NetworksController {
@@ -22,4 +23,10 @@ export class NetworksController {
   update(@Body() updateNetworksDto:UpdateNetworksDto, @Param('id') id:string): Promise<Networks>{
     return this.networksService.update(id, updateNetworksDto)
   }
+
+  @Delete(':id')
+  remove(@Param('id') id:string): Promise<Networks>{
+    return this.networksService.remove(id)
+  }
+
 }

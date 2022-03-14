@@ -18,6 +18,9 @@ export class Device {
 
   @Prop()
   title: string;
+
+  @Prop()
+  networks: string;
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

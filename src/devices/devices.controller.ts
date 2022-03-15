@@ -1,12 +1,10 @@
-import { Body, Controller, Get, Header, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Get, Header, HttpCode, HttpStatus, Param, Post, Put, Query } from "@nestjs/common";
 import { Role } from "../enums/role.enum";
 import { CreateDeviceDto } from "./dto/create-device.dto";
 import { Roles } from "../enums/roles.decorator";
 import { DevicesService } from "./devices.service";
 import { Device } from "./schemas/device.schema";
 import { UpdateDeviceDto } from "./dto/update-device-dto";
-
-
 
 @Controller('devices')
 export class DevicesController {
@@ -17,7 +15,13 @@ export class DevicesController {
   getAll(): Promise<Device[]>{
     return this.devicesService.getAll()
   }
-
+  @Get('/:networks')
+  findByNetworks(
+    @Param('networks') networks: string,
+    @Query() filter: string,
+  ): Promise<Device[]> {
+    return this.devicesService.findByNetworks(networks);
+  }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)

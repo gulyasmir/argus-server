@@ -13,6 +13,10 @@ export class DevicesService {
     return this.deviceModel.find().exec()
   }
 
+  findByNetworks(networks: string): Promise<Device[]> {
+    return this.deviceModel.find({ networks: networks }).exec()
+  }
+
   async create(deviceDto: CreateDeviceDto): Promise<Device>{
     const  newDevice = new this.deviceModel(deviceDto)
     return  newDevice.save()

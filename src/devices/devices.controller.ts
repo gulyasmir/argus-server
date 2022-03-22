@@ -15,6 +15,7 @@ export class DevicesController {
   getAll(): Promise<Device[]>{
     return this.devicesService.getAll()
   }
+
   @Get('/:networks')
   findByNetworks(
     @Param('networks') networks: string,

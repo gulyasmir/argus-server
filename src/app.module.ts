@@ -9,6 +9,8 @@ import { DevicesModule } from './devices/devices.module';
 import { NetworksModule } from './networks/networks.module';
 import { SystemInfoModule } from './system-info/system-info.module';
 import { ProcessesModule } from './processes/processes.module';
+import { UuidService } from './uuid/uuid.service';
+import { UuidModule } from './uuid/uuid.module';
 
 @Module({
   imports: [
@@ -19,7 +21,8 @@ import { ProcessesModule } from './processes/processes.module';
     DevicesModule,
     NetworksModule,
     SystemInfoModule,
-    ProcessesModule
+    ProcessesModule,
+    UuidModule
   ],
   controllers: [AppController],
   providers: [AppService],

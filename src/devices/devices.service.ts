@@ -3,6 +3,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { Device, DeviceDocument } from "./schemas/device.schema";
 import { CreateDeviceDto } from "./dto/create-device.dto";
+import { Product } from "../products/schemas/product.schema";
 
 @Injectable()
 export class DevicesService {
@@ -11,6 +12,10 @@ export class DevicesService {
 
   async getAll(): Promise<Device[]>{
     return this.deviceModel.find().exec()
+  }
+
+  async getById(id: string): Promise<Device>{
+    return this.deviceModel.findById(id)
   }
 
   findByNetworks(networks: string): Promise<Device[]> {
